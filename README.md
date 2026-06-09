@@ -5,7 +5,7 @@
 **Status:** Experiment in progress (v1.0 draft — concept stage, no application code yet).
 **Owner:** Allmer Group. *Separate from Simon Allmer Entertainment.*
 
-📄 **Start here:** open [`network-intro.html`](network-intro.html) in any browser. It's a self-contained pitch + technical brief styled in the product's 1950s travel-diary aesthetic. No build step, no dependencies — it opens offline.
+📄 **Start here:** open [`index.html`](index.html) in any browser, or view it live via GitHub Pages. It's a self-contained pitch + technical brief styled in the product's 1950s travel-diary aesthetic. No build step, no dependencies — it opens offline.
 
 ---
 
@@ -56,7 +56,7 @@ This section is the working brief. **Read it before adding code or changing dire
 ## Repo contents
 | File | What it is |
 |------|------------|
-| `network-intro.html` | Self-contained pitch + technical brief. Share this with anyone who can help build it. |
+| `index.html` | Self-contained pitch + technical brief, and the GitHub Pages homepage. Share this with anyone who can help build it. |
 | `README.md` | This file — the working brief and plan of record. |
 
 ## Contributing
