@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Network — An Introduction</title>
+<title>Envoy — An Introduction</title>
 <style>
   :root{
     --paper:#f2e8d5;
@@ -140,27 +140,27 @@
 
   <header class="hero">
     <p class="kicker">A <a href="https://allmergroup.github.io/Foundry/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sepia);text-underline-offset:3px">Foundry Exchange</a> Experiment · v1.0</p>
-    <h1>Network</h1>
-    <p class="tagline">A physical-first social game. You can only connect by meeting in person — and the world map colours in as you do.</p>
+    <h1>Envoy</h1>
+    <p class="tagline">A physical-first social game. You connect only by meeting in person — every handshake is an Envoice, and the world map colours in as your dispatches grow.</p>
     <div class="stamp">Work in progress</div>
   </header>
 
   <section>
     <h2>The one idea</h2>
-    <p class="big-truth">In an age of AI-generated everything, human presence is one of the few things that cannot be automated, synthesised, or faked. Network turns that into a game.</p>
+    <p class="big-truth">In an age of AI-generated everything, human presence is one of the few things that cannot be automated, synthesised, or faked. Envoy turns that into a game.</p>
     <p style="margin-top:18px">No remote adds. No usernames to search. No follower counts. The only way to add someone is to stand next to them and both agree. Every connection you have is a person you actually met.</p>
   </section>
 
   <section>
     <h2>The loop</h2>
-    <div class="lead">Meet → Handshake → Stamp → Colour</div>
+    <div class="lead">Meet → Envoice → Stamp → Colour</div>
     <ol class="loop">
       <li><b>Meet someone in person</b><span>At a café, a campus, a train carriage on an interrail trip. The app gives you a light, low-stakes reason to say hello.</span></li>
-      <li><b>Trigger the handshake</b><span>Both phones, in proximity, confirm at the same time. Mutual consent is the friction — and the point.</span></li>
-      <li><b>A vintage stamp hits your diary</b><span>An animated passport stamp lands. You've just "networked" their home city.</span></li>
-      <li><b>The globe bursts into watercolour</b><span>Their home country shifts from sepia fog to colour. Your reach across the human map grows.</span></li>
+      <li><b>Exchange Envoices</b><span>Both phones, in proximity, confirm at the same time. An Envoice is filed for both parties — mutual, simultaneous, unfakeable. The friction is the point.</span></li>
+      <li><b>The Envoice stamps your diary</b><span>An animated passport stamp lands. A new dispatch is added to your collection. Their home city is filed.</span></li>
+      <li><b>The globe bursts into watercolour</b><span>Their home country shifts from sepia fog to colour. Your dispatches grow. Your reach across the human map expands.</span></li>
     </ol>
-    <p style="margin-top:22px"><b>The collection is only the doorway.</b> "Oh, I got a new country" is the hook that starts the conversation — it isn't where the connection ends. The real product is what happens after the stamp: the people you actually keep talking to.</p>
+    <p style="margin-top:22px"><b>Your dispatches are only the doorway.</b> "Oh, I got a new country" is the hook that starts the conversation — it isn't where the connection ends. The real product is what happens after the stamp: the people you actually keep talking to.</p>
   </section>
 
   <section>
@@ -171,7 +171,7 @@
       <div class="card"><h3>Nomad mode</h3><p>Not everyone has one home. Nomad mode skips the city lock and travels with you. One tap to switch <em>into</em> it — far easier than changing a fixed Home Base, which stays deliberately hard.</p></div>
       <div class="card"><h3>Privacy is paramount</h3><p>No "a stranger is 250m away." The radar shows only coarse density at a neighbourhood level, never a person's location. Precise location exists <em>only</em> between mutual connections, opt-in and revocable.</p></div>
       <div class="card"><h3>Quiet 1:1 chat</h3><p>A minimal, typewriter-styled message thread with people you've actually met. That's it.</p></div>
-      <div class="card"><h3>No Instagram lock-in</h3><p>Cut. The whole pitch is presence that can't be faked; importing a curated online feed works against that. Network stands on its own.</p></div>
+      <div class="card"><h3>No Instagram lock-in</h3><p>Cut. The whole pitch is presence that can't be faked; importing a curated online feed works against that. Envoy stands on its own.</p></div>
     </div>
   </section>
 
@@ -183,13 +183,13 @@
   <!-- ============ TECHNICAL APPENDIX ============ -->
   <section>
     <h2>For the programmers — honest tech notes</h2>
-    <div class="lead" style="font-size:22px">What's real, what isn't, and what we'd actually build with.</div>
+    <div class="lead" style="font-size:22px">What's real, what isn't, and what we'd actually build Envoy with.</div>
 
     <div class="note" style="margin-bottom:22px">
       <b>Read this first.</b> Apple <b>NameDrop / "Share My Profile"</b> is <span class="no">not available to third-party apps.</span> It is a system feature inside Apple's own Contacts app (built on UWB + NFC) with no public API to invoke it. We get the same <em>tap-to-exchange</em> feeling using the frameworks below — we do not depend on NameDrop.
     </div>
 
-    <h3 style="font-family:'Courier New',monospace;letter-spacing:.2em;font-size:12px;text-transform:uppercase;color:var(--sepia)">The handshake — what actually works</h3>
+    <h3 style="font-family:'Courier New',monospace;letter-spacing:.2em;font-size:12px;text-transform:uppercase;color:var(--sepia)">The Envoice mechanic — what actually works</h3>
     <table class="tech">
       <tr><th>Framework</th><th>Role</th><th>Reality</th></tr>
       <tr><td>MultipeerConnectivity</td><td>The exchange. Ad-hoc peer-to-peer over BLE/Wi-Fi, built for nearby device-to-device.</td><td><span class="yes">Recommended core.</span> Apple-native, no server needed for the swap itself.</td></tr>
@@ -203,7 +203,7 @@
     <table class="tech">
       <tr><th>Concern</th><th>Approach</th></tr>
       <tr><td>Home Base lock</td><td><code>Core Location</code> visit / significant-location monitoring inferred over ~2 weeks. Changing it is deliberately hard; switching to <b>Nomad</b> is one tap.</td></tr>
-      <tr><td>Anti-spoofing</td><td><code>App Attest</code> / <code>DeviceCheck</code> (iOS) and <code>Play Integrity</code> (Android) prove genuine, unmodified app on real hardware. Plus server-side cross-check: both devices must report a matching session nonce + consistent coarse location at handshake time. UWB distance is the strongest physical proof.</td></tr>
+      <tr><td>Anti-spoofing</td><td><code>App Attest</code> / <code>DeviceCheck</code> (iOS) and <code>Play Integrity</code> (Android) prove genuine, unmodified app on real hardware. Plus server-side cross-check: both devices must report a matching session nonce + consistent coarse location at Envoice time. UWB distance is the strongest physical proof.</td></tr>
       <tr><td>Backend (no DevOps, but yes a backend)</td><td>A live social graph with presence + realtime <em>is</em> server-side — there's no "serverless" version of that. But you don't have to <em>run</em> servers: a BaaS like <b>Supabase</b> (Postgres + Realtime + Auth + Edge Functions) or <b>Firebase</b> gives auth, database, realtime presence, storage and push without managing infrastructure.</td></tr>
       <tr><td>Push</td><td>APNs (iOS) / FCM (Android), brokered through the BaaS.</td></tr>
       <tr><td>The globe &amp; radar</td><td><code>globe.gl</code> / <code>three.js</code> for the 3D watercolour globe; <code>MapLibre</code> for the coarse density radar. Both run client-side; render the same in native via a webview or rebuild in <code>SceneKit</code>/<code>MapKit</code>.</td></tr>
@@ -217,7 +217,7 @@
           <li>The whole diary, globe, passport, stickers</li>
           <li>The chat UI</li>
           <li>This very intro / marketing page</li>
-          <li>QR-based handshake fallback</li>
+          <li>QR-based Envoice fallback</li>
         </ul>
       </div>
       <div class="cant">
@@ -229,11 +229,11 @@
         </ul>
       </div>
     </div>
-    <p style="margin-top:18px"><b>Recommendation:</b> <b>native, iOS-first</b> (Swift / SwiftUI), or React Native / Flutter with native modules for the Bluetooth, UWB and attestation pieces — paired with a <b>BaaS backend</b> so there's no infrastructure to manage. A PWA is the right tool for the landing page and an optional read-only globe viewer, but it cannot be the product. If web is non-negotiable for v1, change the mechanic to <b>mutual QR + GPS</b> on purpose — that's a product decision, not a workaround to hide.</p>
+    <p style="margin-top:18px"><b>Recommendation:</b> <b>native, iOS-first</b> (Swift / SwiftUI), or React Native / Flutter with native modules for the Bluetooth, UWB and attestation pieces — paired with a <b>BaaS backend</b> so there's no infrastructure to manage. A PWA is the right tool for the landing page and an optional read-only globe viewer, but it cannot be Envoy. If web is non-negotiable for v1, change the Envoice mechanic to <b>mutual QR + GPS</b> on purpose — that's a product decision, not a workaround to hide.</p>
   </section>
 
   <footer>
-    <p class="typed">NETWORK · a <a href="https://allmergroup.github.io/Foundry/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-color:currentColor;text-underline-offset:3px">Foundry Exchange</a> experiment · separate from Simon Allmer Entertainment</p>
+    <p class="typed">ENVOY · a <a href="https://allmergroup.github.io/Foundry/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-color:currentColor;text-underline-offset:3px">Foundry Exchange</a> experiment · separate from Simon Allmer Entertainment</p>
     <p class="typed">draft v1.0 — share freely with anyone who can help build it</p>
   </footer>
 
